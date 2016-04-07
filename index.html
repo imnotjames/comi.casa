@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			html, body {
+				width: 100vw;
+				height: 100vh;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript">
+var API_KEY = 'dc6zaTOxFJmzC';
+var SEARCH_TAG = 'batman 1966';
+
+$(document).ready(function() {
+	$.get('http://api.giphy.com/v1/gifs/random', { api_key: API_KEY, tag: SEARCH_TAG })
+		.then(function(response) {
+			if (!response.data || !response.data.image_url) {
+				return;
+			}
+
+			$('html').css('background-image', 'url(' + response.data.image_url + ')');
+		});
+});
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
